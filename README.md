@@ -1,4 +1,4 @@
-# Celebal Technologies: Data Science Internship Portfolio
+# Celebal Technologies: CEI Data Engineer Internship Portfolio
 
 Repository tracking the 8-week enterprise analytics training modules and industrial data pipeline projects.
 
