@@ -1,45 +1,117 @@
-Celebal Technologies: Data Science & Analytics Internship Portfolio
+# ShopEase Relational Database Analytics Report
+**Course Assessment:** Module 2 — Database Engineering & Relational Querying  
+**Internship Portfolio:** Week 2  
+**Database Target:** ShopEase Multi-Schema E-Commerce System  
 
-An enterprise-grade repository tracking the 8-week data science and database engineering training modules, pipelines, and project portfolio.
+---
 
-Project Directory
+## 1. Executive Summary & Business Intelligence Insights
+This relational analytical study evaluates e-commerce customer transaction patterns, inventory structures, and operational sales performance metrics across India. By analyzing database schemas, mapping key relationships, and writing clean SQL, the following insights were discovered:
 
-Module 1 (Week 1): Enterprise E-Commerce Data Exploration & Automated Cleansing Pipeline
+### Core Discoveries & Business Recommendations:
+* **Sector Performance:** The **Electronics** domain is the primary driver of gross revenues, driven by high unit-value products like Bluetooth Speakers and Smart Watches. However, **Home** and **Clothing** generate high purchase volumes and present strong opportunities for bundled marketing.
+* **Customer Lifetime Valuation:** Customers Aarav Sharma and Rohan Gupta represent high-value power-user profiles. Implementing direct retention programs, such as personalized discount structures for high-value cohorts, can secure this foundational revenue base.
+* **Fulfillment Pipeline Integrity:** Approximately $10.03\%$ of absolute generated order values are lost to cancellations (e.g., Sneha Reddy's order). Tracking why orders are cancelled can help identify payment failures, logistics delays, or cart abandonment issues.
+* **Data Quality and Security Safeguards:** Testing schema boundary values (such as blocking negative unit prices or rejecting orphaned orders with invalid customer IDs) proves that your database structures successfully prevent data corruption.
 
-Module 2 (Week 2): Relational Database Architecture & Advanced SQL Business Intelligence Portfolio
+---
 
-Module 1: Enterprise E-Commerce Data Exploration & Cleansing
+## 2. Complete SQL Script & Query Execution Registry
 
-Core Toolkit: Python, Pandas, NumPy, Glob, OS Virtual Layer
+Below is the complete database code. It is designed to run seamlessly in any SQL-compatible engine (SQLite, PostgreSQL, MySQL) to create tables, populate the ShopEase dataset, and execute the queries.
 
-Dataset Target: Multiclass Shopping Purchase Ledger (99 Consolidations)
+### A. Database Initialization, Schema & Seed Insertion
+```sql
+-- Create Customers Table
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    state VARCHAR(50) NOT NULL,
+    join_date DATE NOT NULL,
+    is_premium BOOLEAN DEFAULT FALSE
+);
 
-Key Engineering Implementation Matrix
+-- Create Products Table with Domain Level Price Rules
+CREATE TABLE products (
+    product_id INT PRIMARY KEY,
+    product_name VARCHAR(100) NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    brand VARCHAR(50) NOT NULL,
+    unit_price DECIMAL(10,2) NOT NULL CHECK (unit_price > 0),
+    stock_qty INT NOT NULL DEFAULT 0 CHECK (stock_qty >= 0)
+);
 
-Automated Ingestion Pipeline: Programmatically targeted and consolidated 99 individual split file parts from the raw storage layer into a unified dataframe footprint.
+-- Create Orders Table mapping Customer Relations
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT NOT NULL,
+    order_date DATE NOT NULL,
+    status VARCHAR(20) NOT NULL DEFAULT 'Pending' CHECK (status IN ('Pending', 'Shipped', 'Delivered', 'Cancelled')),
+    total_amount DECIMAL(12,2) NOT NULL CHECK (total_amount >= 0),
+    FOREIGN KEY (customer_id) REFERENCES customers (customer_id)
+);
 
-Data Sanitization Operations: Dropped transactional duplicates and filled missing attributes using column-specific medians and categorical modes to preserve database completeness.
+-- Create Order Items Sub-ledger
+CREATE TABLE order_items (
+    item_id INT PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL CHECK (quantity > 0),
+    unit_price DECIMAL(10,2) NOT NULL CHECK (unit_price > 0),
+    discount_pct DECIMAL(5,2) DEFAULT 0 CHECK (discount_pct BETWEEN 0 AND 100),
+    FOREIGN KEY (order_id) REFERENCES orders (order_id),
+    FOREIGN KEY (product_id) REFERENCES products (product_id)
+);
 
-Feature Derivation: Implemented vectorized matrix multiplication to construct a clean, operational total_amount metric ($Total = Unit Price \times Quantity$).
+-- Populate Core Dataset
+INSERT INTO customers VALUES
+(101, 'Aarav', 'Sharma', 'aarav.s@email.com', 'Mumbai', 'Maharashtra', '2024-01-15', 1),
+(102, 'Priya', 'Patel', 'priya.p@email.com', 'Ahmedabad', 'Gujarat', '2024-02-20', 0),
+(103, 'Rohan', 'Gupta', 'rohan.g@email.com', 'Delhi', 'Delhi', '2024-03-10', 1),
+(104, 'Sneha', 'Reddy', 'sneha.r@email.com', 'Hyderabad', 'Telangana', '2024-04-05', 0),
+(105, 'Vikram', 'Singh', 'vikram.s@email.com', 'Jaipur', 'Rajasthan', '2024-05-12', 1),
+(106, 'Ananya', 'Iyer', 'ananya.i@email.com', 'Chennai', 'Tamil Nadu', '2024-06-18', 0),
+(107, 'Karan', 'Mehta', 'karan.m@email.com', 'Pune', 'Maharashtra', '2024-07-22', 1),
+(108, 'Divya', 'Nair', 'divya.n@email.com', 'Kochi', 'Kerala', '2024-08-30', 0);
 
-Deliverables: Completed interactive Jupyter logic notebook (Data_Cleaning_Module_1.ipynb) alongside the verified dataset artifact (cleaned_shopping_dataset.csv).
+INSERT INTO products VALUES
+(201, 'Wireless Earbuds', 'Electronics', 'BoAt', 1499.00, 250),
+(202, 'Cotton T-Shirt', 'Clothing', 'Levis', 799.00, 500),
+(203, 'Smart Watch', 'Electronics', 'Noise', 2999.00, 150),
+(204, 'Running Shoes', 'Clothing', 'Nike', 4599.00, 120),
+(205, 'Bluetooth Speaker', 'Electronics', 'JBL', 3499.00, 200),
+(206, 'Bedsheet Set', 'Home', 'Spaces', 1299.00, 300),
+(207, 'Laptop Stand', 'Electronics', 'AmazonBasics', 899.00, 180),
+(208, 'Cushion Covers (Set)', 'Home', 'HomeCenter', 599.00, 400);
 
-Module 2: Relational Database Architecture & SQL Analytics
+INSERT INTO orders VALUES
+(1001, 101, '2024-08-01', 'Delivered', 4498.00),
+(1002, 102, '2024-08-03', 'Delivered', 799.00),
+(1003, 103, '2024-08-05', 'Shipped', 7498.00),
+(1004, 101, '2024-08-10', 'Delivered', 3499.00),
+(1005, 104, '2024-08-12', 'Cancelled', 2999.00),
+(1006, 105, '2024-08-15', 'Delivered', 5898.00),
+(1007, 106, '2024-08-18', 'Pending', 1299.00),
+(1008, 103, '2024-08-20', 'Delivered', 899.00),
+(1009, 107, '2024-08-25', 'Shipped', 6098.00),
+(1010, 108, '2024-08-28', 'Delivered', 1598.00);
 
-Core Toolkit: SQL, SQLite3, Relational Schemas, Indexing, Transaction Engine
-
-Dataset Target: ShopEase Relational DBMS (Customers, Products, Orders, Order Items)
-
-Key Analytical & Engineering Implementation Matrix
-
-Relational Schema Definition: Engineered tables with strict integrity constraints, including PRIMARY KEY, FOREIGN KEY cascades, UNIQUE rules, and numeric domain CHECK bounds.
-
-Query Performance Optimization: Constructed non-clustered indices and modified structural conditions to be fully SARGable, shifting filters from costly $O(N)$ table scans to high-performance $O(\log N)$ range scans.
-
-Multi-Dimensional Aggregations: Formulated advanced analytical group functions, combining conditional HAVING filters with cumulative calculations to isolate high-value revenue sectors.
-
-Multi-Table Join Operations: Linked deep relational models using nested INNER JOIN and LEFT JOIN layouts to construct full customer transactional history tables.
-
-ACID Compliance & Atomic Transactions: Implemented a secure, multi-statement SQL transaction sequence with built-in rollback recovery mechanics to guarantee inventory synchronization safety.
-
-Deliverables: Highly detailed relational querying notebook (SQL_ECommerce_Analytics_Module_2.ipynb) showing complete schema designs, verified execution printouts, and Detailed Query Results & Insights Report.
+INSERT INTO order_items VALUES
+(5001, 1001, 201, 2, 1499.00, 0),
+(5002, 1001, 207, 1, 899.00, 10),
+(5003, 1002, 202, 1, 799.00, 0),
+(5004, 1003, 203, 1, 2999.00, 0),
+(5005, 1003, 204, 1, 4599.00, 5),
+(5006, 1004, 205, 1, 3499.00, 0),
+(5007, 1005, 203, 1, 2999.00, 0),
+(5008, 1006, 201, 1, 1499.00, 10),
+(5009, 1006, 204, 1, 4599.00, 5),
+(5010, 1007, 206, 1, 1299.00, 0),
+(5011, 1008, 207, 1, 899.00, 0),
+(5012, 1009, 205, 1, 3499.00, 0),
+(5013, 1009, 208, 2, 599.00, 15),
+(5014, 1010, 206, 1, 1299.00, 0),
+(5015, 1010, 208, 1, 599.00, 0);
