@@ -22,7 +22,6 @@ Below is the complete database code. It is designed to run seamlessly in any SQL
 
 ### A. Database Initialization, Schema & Seed Insertion
 
-```sql
 -- Create Customers Table
 CREATE TABLE customers (
     customer_id INT PRIMARY KEY,
@@ -117,9 +116,6 @@ INSERT INTO order_items VALUES
 (5014, 1010, 206, 1, 1299.00, 0),
 (5015, 1010, 208, 1, 599.00, 0);
 
-
-
-
 ---
 
 ## 3. Query Execution & Results Registry
@@ -173,13 +169,16 @@ Query: SELECT DISTINCT category FROM products;
 ---
 
 #### Q4: Identify the Primary Key of each table in the schema. Explain why a Primary Key must be unique and NOT NULL.
-**Analysis:** * **Primary Keys:** customers(customer_id), products(product_id), orders(order_id), order_items(item_id).
-* **Explanation:** A Primary Key enforces entity integrity. It must be UNIQUE to prevent completely duplicate rows inside relational storage and NOT NULL to guarantee every row is explicitly addressable and identifiable.
+> **Analysis:**
+> * **Primary Keys Map:** `customers(customer_id)`, `products(product_id)`, `orders(order_id)`, `order_items(item_id)`.
+> * **Core Explanation:** A Primary Key enforces relational data integrity. It must be `UNIQUE` to block duplicate records from entering the database, and `NOT NULL` to guarantee every single record remains searchable and indexable.
 
 ---
 
 #### Q5: What constraints are applied to the email column in the customers table? What would happen if you tried to insert a duplicate email?
-**Analysis:** The email column utilizes UNIQUE and NOT NULL constraints. If a system operation attempts to insert an email that already exists in the table, the database transaction layer throws a unique index violation constraint error and completely rolls back the command.
+> **Analysis:**
+> * **Constraints:** The `email` field uses `UNIQUE` and `NOT NULL` constraints.
+> * **System Reaction:** If an operation tries to insert a duplicate email address, the database engine blocks the update immediately, rejects the row, and returns a strict constraint violation error.
 
 ---
 
@@ -188,7 +187,7 @@ Query: INSERT INTO products VALUES (209, 'Invalid Box', 'Home', 'Brand', -50.00,
 
 **Execution Response:** sqlite3.IntegrityError: CHECK constraint failed: unit_price > 0
 
-**Analysis:** The database engine blocked the execution. The check is enforced by the constraint CHECK (unit_price > 0) defined inside the table's DDL statement.
+> **Analysis:** The database safely blocked the insertion. This validation check is automatically caught by the rule `CHECK (unit_price > 0)` defined inside the table setup.
 
 ---
 
@@ -245,17 +244,17 @@ Query: SELECT * FROM orders WHERE order_date BETWEEN '2024-08-10' AND '2024-08-2
 
 ---
 
-#### Q11: Explain what the index idx_orders_date does. How would it improve the performance of a query that filters orders by order_date?
-**Analysis:** The index idx_orders_date sets up a pre-sorted lookup map pointing directly to table rows. Instead of checking every single row sequentially via a costly Full Table Scan, the engine performs a fast binary search range scan to find dates instantly.
+#### Q11: Explain what the index idx_orders_date does. How would it improve performance?
+Query: SELECT * FROM orders WHERE order_date = '2024-08-15';
 
-Benefitting Query Example: SELECT * FROM orders WHERE order_date = '2024-08-15';
+> **Analysis:** The index `idx_orders_date` sets up a pre-sorted lookup map pointing directly to table rows. Instead of checking every single row sequentially via a costly Full Table Scan, the engine performs a fast binary search range scan to find dates instantly.
 
 ---
 
-#### Q12: If you run: SELECT * FROM customers WHERE YEAR(join_date) = 2024 - would the index on join_date be used? Rewrite to be SARGable.
-**Analysis:** No, the index cannot be used. Wrapping the column in a function like YEAR(join_date) makes it non-SARGable because the database engine must compute the function for every single row, bypassing index optimization. To fix this, search using clear date range boundaries:
+#### Q12: If you run: SELECT * FROM customers WHERE YEAR(join_date) = 2024 - would the index be used? Rewrite to be SARGable.
+> **Analysis:** No, the index cannot be used. Wrapping the column in a function like `YEAR(join_date)` makes it non-SARGable because the database engine must compute the function for every single row, completely bypassing index optimization.
 
-SARGable Query: SELECT * FROM customers WHERE join_date >= '2024-01-01' AND join_date <= '2024-12-31';
+Optimized SARGable Query: SELECT * FROM customers WHERE join_date >= '2024-01-01' AND join_date <= '2024-12-31';
 
 ---
 
@@ -394,15 +393,15 @@ Query: SELECT oi.order_id, p.product_name, oi.quantity, oi.unit_price, oi.discou
 ---
 
 #### Q22: Explain the difference between LEFT JOIN and RIGHT JOIN with an example from this schema. When would you use a FULL OUTER JOIN?
-**Analysis:** * **LEFT JOIN:** Preserves all entries from the left table (customers), filling missing connections on the right (orders) with NULLs. This shows every single customer, regardless of whether they have ordered anything.
-* **RIGHT JOIN:** Preserves all entries from the right table (orders), filling missing connections on the left with NULLs.
-* **FULL OUTER JOIN:** Retains all rows from both tables, pairing matches where possible and padding missing relationships with NULLs on either side. Use this when performing a complete reconciliation audit between two independent tables.
+> **Analysis:** > * **LEFT JOIN:** Preserves all entries from the left table (`customers`), filling missing connections on the right (`orders`) with NULLs. This shows every single customer, regardless of whether they have ordered anything.
+> * **RIGHT JOIN:** Preserves all entries from the right table (`orders`), filling missing connections on the left with NULLs.
+> * **FULL OUTER JOIN:** Retains all rows from both tables, pairing matches where possible and padding missing relationships with NULLs on either side. Use this when performing a complete reconciliation audit between two independent tables.
 
 ---
 
 #### Q23: Identify all Foreign Key relationships in the schema. Explain what would happen if you tried to insert an order with customer_id = 999.
-**Analysis:** * **Relationships:** orders.customer_id references customers.customer_id, order_items.order_id references orders.order_id, and order_items.product_id references products.product_id.
-* **Behavior:** Attempting to insert an order with customer_id = 999 trips a foreign key integrity violation. This halts execution because the key is not present in the master parent directory.
+> **Analysis:** > * **Relationships Map:** `orders.customer_id` references `customers.customer_id`, `order_items.order_id` references `orders.order_id`, and `order_items.product_id` references `products.product_id`.
+> * **System Safeguard:** Attempting to insert an order with `customer_id = 999` immediately triggers a foreign key constraint violation. The system blocks the write operation because that user does not exist in the master customer registry.
 
 ---
 
@@ -436,20 +435,23 @@ Query: SELECT COUNT(CASE WHEN status = 'Delivered' THEN 1 END) AS delivered_volu
 ---
 
 #### Q26: Explain each letter of ACID. Give a real-world bank transfer example.
-* **Atomicity:** All steps in a transaction succeed, or the entire operation is rolled back. (e.g., During a bank transfer, deducting money from Account A without completing the deposit into Account B is completely blocked).
-* **Consistency:** Every transaction moves the database from one valid state to another, strictly maintaining all structural constraints and relationships.
-* **Isolation:** Concurrently running operations cannot see each other's uncommitted, partial changes, preventing dirty reads and transaction conflicts.
-* **Durability:** Once committed, updates are permanently written to non-volatile disk storage. The data will survive even a sudden system crash or power outage.
+> **Analysis:**
+> * **Atomicity:** All parts of a transaction succeed, or the entire operation is rolled back safely (e.g., A bank transfer shouldn't deduct money from Account A if the deposit into Account B fails).
+> * **Consistency:** Transactions must strictly follow database rules and constraints to move your data smoothly from one valid state to another.
+> * **Isolation:** Multiple operations running at the same time cannot see each other's partial, uncommitted changes, preventing errors and conflicts.
+> * **Durability:** Once a transaction is committed, its changes are permanently written to your disk storage and won't be lost, even during a sudden system crash.
 
 ---
 
 #### Q27: Write a SQL transaction that executes atomically.
-Execution Steps:
-1. Begin transaction execution safely (BEGIN TRANSACTION;)
-2. Ingest new order row (INSERT INTO orders VALUES (1011, 102, '2026-05-30', 'Pending', 1598.00);)
-3. Append itemized line items (INSERT INTO order_items VALUES (5016, 1011, 202, 1, 799.00, 0);)
-4. Synchronize inventory levels across affected items (UPDATE products SET stock_qty = stock_qty - 2 WHERE product_id = 202;)
-5. Complete transaction and write permanently to disk (COMMIT;)
+
+Execution Sequence Setup:
+1. BEGIN TRANSACTION;
+2. INSERT INTO orders VALUES (1011, 102, '2026-05-30', 'Pending', 1598.00);
+3. INSERT INTO order_items VALUES (5016, 1011, 202, 1, 799.00, 0);
+4. INSERT INTO order_items VALUES (5017, 1011, 202, 1, 799.00, 0);
+5. UPDATE products SET stock_qty = stock_qty - 2 WHERE product_id = 202;
+6. COMMIT;
 
 **Execution Status Logs:**
 * Step 1 Verified: Order header record created successfully.
