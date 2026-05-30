@@ -22,6 +22,7 @@ Below is the complete database code. It is designed to run seamlessly in any SQL
 
 ### A. Database Initialization, Schema & Seed Insertion
 
+```sql
 -- Create Customers Table
 CREATE TABLE customers (
     customer_id INT PRIMARY KEY,
@@ -115,6 +116,9 @@ INSERT INTO order_items VALUES
 (5013, 1009, 208, 2, 599.00, 15),
 (5014, 1010, 206, 1, 1299.00, 0),
 (5015, 1010, 208, 1, 599.00, 0);
+
+
+
 
 ---
 
