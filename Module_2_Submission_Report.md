@@ -19,8 +19,9 @@ This relational analytical study evaluates e-commerce customer transaction patte
 ## 2. Complete SQL Script & Query Execution Registry
 
 Below is the complete database code. It is designed to run seamlessly in any SQL-compatible engine (SQLite, PostgreSQL, MySQL) to create tables, populate the ShopEase dataset, and execute the queries.
-
 ### A. Database Initialization, Schema & Seed Insertion
+
+```sql
 -- Create Customers Table
 CREATE TABLE customers (
     customer_id INT PRIMARY KEY,
@@ -65,7 +66,7 @@ CREATE TABLE order_items (
     FOREIGN KEY (product_id) REFERENCES products (product_id)
 );
 
--- Populate Core Dataset
+-- Populate Customers Dataset
 INSERT INTO customers VALUES
 (101, 'Aarav', 'Sharma', 'aarav.s@email.com', 'Mumbai', 'Maharashtra', '2024-01-15', 1),
 (102, 'Priya', 'Patel', 'priya.p@email.com', 'Ahmedabad', 'Gujarat', '2024-02-20', 0),
@@ -76,6 +77,7 @@ INSERT INTO customers VALUES
 (107, 'Karan', 'Mehta', 'karan.m@email.com', 'Pune', 'Maharashtra', '2024-07-22', 1),
 (108, 'Divya', 'Nair', 'divya.n@email.com', 'Kochi', 'Kerala', '2024-08-30', 0);
 
+-- Populate Products Dataset
 INSERT INTO products VALUES
 (201, 'Wireless Earbuds', 'Electronics', 'BoAt', 1499.00, 250),
 (202, 'Cotton T-Shirt', 'Clothing', 'Levis', 799.00, 500),
@@ -86,6 +88,7 @@ INSERT INTO products VALUES
 (207, 'Laptop Stand', 'Electronics', 'AmazonBasics', 899.00, 180),
 (208, 'Cushion Covers (Set)', 'Home', 'HomeCenter', 599.00, 400);
 
+-- Populate Orders Dataset
 INSERT INTO orders VALUES
 (1001, 101, '2024-08-01', 'Delivered', 4498.00),
 (1002, 102, '2024-08-03', 'Delivered', 799.00),
@@ -98,6 +101,7 @@ INSERT INTO orders VALUES
 (1009, 107, '2024-08-25', 'Shipped', 6098.00),
 (1010, 108, '2024-08-28', 'Delivered', 1598.00);
 
+-- Populate Order Items Dataset
 INSERT INTO order_items VALUES
 (5001, 1001, 201, 2, 1499.00, 0),
 (5002, 1001, 207, 1, 899.00, 10),
