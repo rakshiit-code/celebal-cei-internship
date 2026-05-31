@@ -19,9 +19,9 @@ This relational analytical study evaluates e-commerce customer transaction patte
 ## 2. Complete SQL Script & Query Execution Registry
 
 Below is the complete database code. It is designed to run seamlessly in any SQL-compatible engine (SQLite, PostgreSQL, MySQL) to create tables, populate the ShopEase dataset, and execute the queries.
+
 ### A. Database Initialization, Schema & Seed Insertion
 
-```sql
 -- Create Customers Table
 CREATE TABLE customers (
     customer_id INT PRIMARY KEY,
@@ -66,7 +66,7 @@ CREATE TABLE order_items (
     FOREIGN KEY (product_id) REFERENCES products (product_id)
 );
 
--- Populate Customers Dataset
+-- Populate Core Dataset
 INSERT INTO customers VALUES
 (101, 'Aarav', 'Sharma', 'aarav.s@email.com', 'Mumbai', 'Maharashtra', '2024-01-15', 1),
 (102, 'Priya', 'Patel', 'priya.p@email.com', 'Ahmedabad', 'Gujarat', '2024-02-20', 0),
@@ -77,7 +77,6 @@ INSERT INTO customers VALUES
 (107, 'Karan', 'Mehta', 'karan.m@email.com', 'Pune', 'Maharashtra', '2024-07-22', 1),
 (108, 'Divya', 'Nair', 'divya.n@email.com', 'Kochi', 'Kerala', '2024-08-30', 0);
 
--- Populate Products Dataset
 INSERT INTO products VALUES
 (201, 'Wireless Earbuds', 'Electronics', 'BoAt', 1499.00, 250),
 (202, 'Cotton T-Shirt', 'Clothing', 'Levis', 799.00, 500),
@@ -88,7 +87,6 @@ INSERT INTO products VALUES
 (207, 'Laptop Stand', 'Electronics', 'AmazonBasics', 899.00, 180),
 (208, 'Cushion Covers (Set)', 'Home', 'HomeCenter', 599.00, 400);
 
--- Populate Orders Dataset
 INSERT INTO orders VALUES
 (1001, 101, '2024-08-01', 'Delivered', 4498.00),
 (1002, 102, '2024-08-03', 'Delivered', 799.00),
@@ -101,7 +99,6 @@ INSERT INTO orders VALUES
 (1009, 107, '2024-08-25', 'Shipped', 6098.00),
 (1010, 108, '2024-08-28', 'Delivered', 1598.00);
 
--- Populate Order Items Dataset
 INSERT INTO order_items VALUES
 (5001, 1001, 201, 2, 1499.00, 0),
 (5002, 1001, 207, 1, 899.00, 10),
@@ -118,6 +115,7 @@ INSERT INTO order_items VALUES
 (5013, 1009, 208, 2, 599.00, 15),
 (5014, 1010, 206, 1, 1299.00, 0),
 (5015, 1010, 208, 1, 599.00, 0);
+
 ---
 
 ## 3. Query Execution & Results Registry
@@ -128,6 +126,7 @@ INSERT INTO order_items VALUES
 Query: SELECT * FROM customers;
 
 **Query Output Results:**
+
 | customer_id | first_name | last_name | email | city | state | join_date | is_premium |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 101 | Aarav | Sharma | aarav.s@email.com | Mumbai | Maharashtra | 2024-01-15 | 1 |
@@ -145,6 +144,7 @@ Query: SELECT * FROM customers;
 Query: SELECT first_name, last_name, city FROM customers;
 
 **Query Output Results:**
+
 | first_name | last_name | city |
 | :--- | :--- | :--- |
 | Aarav | Sharma | Mumbai |
@@ -162,6 +162,7 @@ Query: SELECT first_name, last_name, city FROM customers;
 Query: SELECT DISTINCT category FROM products;
 
 **Query Output Results:**
+
 | category |
 | :--- |
 | Electronics |
@@ -199,6 +200,7 @@ Query: INSERT INTO products VALUES (209, 'Invalid Box', 'Home', 'Brand', -50.00,
 Query: SELECT * FROM orders WHERE status = 'Delivered';
 
 **Query Output Results:**
+
 | order_id | customer_id | order_date | status | total_amount |
 | :--- | :--- | :--- | :--- | :--- |
 | 1001 | 101 | 2024-08-01 | Delivered | 4498.00 |
@@ -214,6 +216,7 @@ Query: SELECT * FROM orders WHERE status = 'Delivered';
 Query: SELECT * FROM products WHERE category = 'Electronics' AND unit_price > 2000;
 
 **Query Output Results:**
+
 | product_id | product_name | category | brand | unit_price | stock_qty |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 203 | Smart Watch | Electronics | Noise | 2999.00 | 150 |
@@ -225,6 +228,7 @@ Query: SELECT * FROM products WHERE category = 'Electronics' AND unit_price > 20
 Query: SELECT * FROM customers WHERE join_date LIKE '2024%' AND state = 'Maharashtra';
 
 **Query Output Results:**
+
 | customer_id | first_name | last_name | email | city | state | join_date | is_premium |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 101 | Aarav | Sharma | aarav.s@email.com | Mumbai | Maharashtra | 2024-01-15 | 1 |
@@ -236,6 +240,7 @@ Query: SELECT * FROM customers WHERE join_date LIKE '2024%' AND state = 'Maharas
 Query: SELECT * FROM orders WHERE order_date BETWEEN '2024-08-10' AND '2024-08-25' AND status != 'Cancelled';
 
 **Query Output Results:**
+
 | order_id | customer_id | order_date | status | total_amount |
 | :--- | :--- | :--- | :--- | :--- |
 | 1004 | 101 | 2024-08-10 | Delivered | 3499.00 |
@@ -266,6 +271,7 @@ Optimized SARGable Query: SELECT * FROM customers WHERE join_date >= '2024-01-01
 Query: SELECT COUNT(*) AS total_orders FROM orders;
 
 **Query Output Results:**
+
 | total_orders |
 | :--- |
 | 10 |
@@ -276,6 +282,7 @@ Query: SELECT COUNT(*) AS total_orders FROM orders;
 Query: SELECT SUM(total_amount) AS total_revenue FROM orders WHERE status = 'Delivered';
 
 **Query Output Results:**
+
 | total_revenue |
 | :--- |
 | 17191.00 |
@@ -286,6 +293,7 @@ Query: SELECT SUM(total_amount) AS total_revenue FROM orders WHERE status = 'Del
 Query: SELECT category, ROUND(AVG(unit_price), 2) AS average_price FROM products GROUP BY category;
 
 **Query Output Results:**
+
 | category | average_price |
 | :--- | :--- |
 | Clothing | 2699.00 |
@@ -298,6 +306,7 @@ Query: SELECT category, ROUND(AVG(unit_price), 2) AS average_price FROM products
 Query: SELECT status, COUNT(*) AS status_count, SUM(total_amount) AS total_revenue FROM orders GROUP BY status ORDER BY total_revenue DESC;
 
 **Query Output Results:**
+
 | status | status_count | total_revenue |
 | :--- | :--- | :--- |
 | Delivered | 6 | 17191.00 |
@@ -311,6 +320,7 @@ Query: SELECT status, COUNT(*) AS status_count, SUM(total_amount) AS total_reven
 Query: SELECT category, MAX(unit_price) AS max_price, MIN(unit_price) AS min_price FROM products GROUP BY category;
 
 **Query Output Results:**
+
 | category | max_price | min_price |
 | :--- | :--- | :--- |
 | Clothing | 4599.00 | 799.00 |
@@ -323,6 +333,7 @@ Query: SELECT category, MAX(unit_price) AS max_price, MIN(unit_price) AS min_pri
 Query: SELECT category, ROUND(AVG(unit_price), 2) AS avg_price FROM products GROUP BY category HAVING AVG(unit_price) > 2000;
 
 **Query Output Results:**
+
 | category | avg_price |
 | :--- | :--- |
 | Clothing | 2699.00 |
@@ -336,6 +347,7 @@ Query: SELECT category, ROUND(AVG(unit_price), 2) AS avg_price FROM products GRO
 Query: SELECT o.order_id, o.order_date, c.first_name, c.last_name, o.total_amount FROM orders o INNER JOIN customers c ON o.customer_id = c.customer_id;
 
 **Query Output Results:**
+
 | order_id | order_date | first_name | last_name | total_amount |
 | :--- | :--- | :--- | :--- | :--- |
 | 1001 | 2024-08-01 | Aarav | Sharma | 4498.00 |
@@ -355,6 +367,7 @@ Query: SELECT o.order_id, o.order_date, c.first_name, c.last_name, o.total_amoun
 Query: SELECT c.customer_id, c.first_name, c.last_name, o.order_id, o.status FROM customers c LEFT JOIN orders o ON c.customer_id = o.customer_id;
 
 **Query Output Results:**
+
 | customer_id | first_name | last_name | order_id | status |
 | :--- | :--- | :--- | :--- | :--- |
 | 101 | Aarav | Sharma | 1001 | Delivered |
@@ -374,6 +387,7 @@ Query: SELECT c.customer_id, c.first_name, c.last_name, o.order_id, o.status FRO
 Query: SELECT oi.order_id, p.product_name, oi.quantity, oi.unit_price, oi.discount_pct FROM order_items oi INNER JOIN orders o ON oi.order_id = o.order_id INNER JOIN products p ON oi.product_id = p.product_id;
 
 **Query Output Results:**
+
 | order_id | product_name | quantity | unit_price | discount_pct |
 | :--- | :--- | :--- | :--- | :--- |
 | 1001 | Wireless Earbuds | 2 | 1499.00 | 0.00 |
@@ -395,14 +409,16 @@ Query: SELECT oi.order_id, p.product_name, oi.quantity, oi.unit_price, oi.discou
 ---
 
 #### Q22: Explain the difference between LEFT JOIN and RIGHT JOIN with an example from this schema. When would you use a FULL OUTER JOIN?
-> **Analysis:** > * **LEFT JOIN:** Preserves all entries from the left table (`customers`), filling missing connections on the right (`orders`) with NULLs. This shows every single customer, regardless of whether they have ordered anything.
+> **Analysis:**
+> * **LEFT JOIN:** Preserves all entries from the left table (`customers`), filling missing connections on the right (`orders`) with NULLs. This shows every single customer, regardless of whether they have ordered anything.
 > * **RIGHT JOIN:** Preserves all entries from the right table (`orders`), filling missing connections on the left with NULLs.
 > * **FULL OUTER JOIN:** Retains all rows from both tables, pairing matches where possible and padding missing relationships with NULLs on either side. Use this when performing a complete reconciliation audit between two independent tables.
 
 ---
 
 #### Q23: Identify all Foreign Key relationships in the schema. Explain what would happen if you tried to insert an order with customer_id = 999.
-> **Analysis:** > * **Relationships Map:** `orders.customer_id` references `customers.customer_id`, `order_items.order_id` references `orders.order_id`, and `order_items.product_id` references `products.product_id`.
+> **Analysis:**
+> * **Relationships Map:** `orders.customer_id` references `customers.customer_id`, `order_items.order_id` references `orders.order_id`, and `order_items.product_id` references `products.product_id`.
 > * **System Safeguard:** Attempting to insert an order with `customer_id = 999` immediately triggers a foreign key constraint violation. The system blocks the write operation because that user does not exist in the master customer registry.
 
 ---
@@ -413,6 +429,7 @@ Query: SELECT oi.order_id, p.product_name, oi.quantity, oi.unit_price, oi.discou
 Query: SELECT product_name, unit_price, CASE WHEN unit_price < 1000 THEN 'Budget' WHEN unit_price BETWEEN 1000 AND 3000 THEN 'Mid-Range' ELSE 'Premium' END AS price_tier FROM products;
 
 **Query Output Results:**
+
 | product_name | unit_price | price_tier |
 | :--- | :--- | :--- |
 | Wireless Earbuds | 1499.00 | Mid-Range |
@@ -430,6 +447,7 @@ Query: SELECT product_name, unit_price, CASE WHEN unit_price < 1000 THEN 'Budget
 Query: SELECT COUNT(CASE WHEN status = 'Delivered' THEN 1 END) AS delivered_volume, COUNT(CASE WHEN status != 'Delivered' THEN 1 END) AS non_delivered_volume FROM orders;
 
 **Query Output Results:**
+
 | delivered_volume | non_delivered_volume |
 | :--- | :--- |
 | 6 | 4 |
@@ -440,7 +458,7 @@ Query: SELECT COUNT(CASE WHEN status = 'Delivered' THEN 1 END) AS delivered_volu
 > **Analysis:**
 > * **Atomicity:** All parts of a transaction succeed, or the entire operation is rolled back safely (e.g., A bank transfer shouldn't deduct money from Account A if the deposit into Account B fails).
 > * **Consistency:** Transactions must strictly follow database rules and constraints to move your data smoothly from one valid state to another.
-> * **Isolation:** Multiple operations running at the same time cannot see each other's partial, uncommitted changes, preventing errors and conflicts.
+> * **Isolation:** Multiple operations running at the same time cannot see each other's uncommitted changes, preventing dirty reads and transaction conflicts.
 > * **Durability:** Once a transaction is committed, its changes are permanently written to your disk storage and won't be lost, even during a sudden system crash.
 
 ---
