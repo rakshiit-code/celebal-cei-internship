@@ -1,33 +1,52 @@
-# Celebal Technologies: Data Science & Analytics Internship Portfolio
+# Celebal Technologies: Data Science & Analytics Portfolio
 
-An enterprise-grade repository tracking the 8-week data science and database engineering training modules, pipelines, and project portfolio.
+![Project Status](https://img.shields.io/badge/Internship_Portfolio-Active-blue?style=for-the-badge)
+![Database Engine](https://img.shields.io/badge/DBMS-SQLite3%20%7C%20PostgreSQL-emerald?style=for-the-badge)
+![Pipeline Stack](https://img.shields.io/badge/Pipeline-Python%20%7C%20Pandas-orange?style=for-the-badge)
 
-## Project Directory
-* **Module 1 (Week 1):** Enterprise E-Commerce Data Exploration & Automated Cleansing Pipeline
-* **Module 2 (Week 2):** Relational Database Architecture & Advanced SQL Business Intelligence Portfolio
-
----
-
-## Module 1: Enterprise E-Commerce Data Exploration & Cleansing
-* **Core Toolkit:** Python, Pandas, NumPy, Glob, OS Virtual Layer
-* **Dataset Target:** Multiclass Shopping Purchase Ledger (99 Consolidations)
-
-### Key Engineering Implementation Matrix
-1. **Automated Ingestion Pipeline:** Programmatically targeted and consolidated 99 individual split file parts from the raw storage layer into a unified dataframe footprint.
-2. **Data Sanitization Operations:** Dropped transactional duplicates and filled missing attributes using column-specific medians and categorical modes to preserve database completeness.
-3. **Feature Derivation:** Implemented vectorized matrix multiplication to construct a clean, operational `total_amount` metric ($Total = Unit Price \times Quantity$).
-4. **Deliverables:** Completed interactive Jupyter logic notebook (`Data_Cleaning_Module_1.ipynb`) alongside the verified dataset artifact (`cleaned_shopping_dataset.csv`).
+An enterprise-grade repository tracking core milestones, complex processing pipelines, relational database engines, and structural querying assets managed over the 8-week corporate training program.
 
 ---
 
-## Module 2: Relational Database Architecture & SQL Analytics
-* **Core Toolkit:** SQL, SQLite3, Relational Schemas, Indexing, Transaction Engine
-* **Dataset Target:** ShopEase Relational DBMS (Customers, Products, Orders, Order Items)
+## 📂 Repository Blueprint & Deliverables Map
 
-### Key Analytical & Engineering Implementation Matrix
-1. **Relational Schema Definition:** Engineered tables with strict integrity constraints, including `PRIMARY KEY`, `FOREIGN KEY` cascades, `UNIQUE` rules, and numeric domain `CHECK` bounds.
-2. **Query Performance Optimization:** Constructed non-clustered B-Tree indices and modified structural conditions to be fully SARGable, shifting filters from costly $O(N)$ table scans to high-performance $O(\log N)$ range scans.
-3. **Multi-Dimensional Aggregations:** Formulated advanced analytical group functions, combining conditional `HAVING` filters with cumulative calculations to isolate high-value revenue sectors.
-4. **Multi-Table Join Operations:** Linked deep relational models using nested `INNER JOIN` and `LEFT JOIN` layouts to construct full customer transactional history tables.
-5. **ACID Compliance & Atomic Transactions:** Implemented a secure, multi-statement SQL transaction sequence with built-in rollback recovery mechanics to guarantee inventory synchronization safety.
-6. **Deliverables:** Highly detailed relational querying notebook (`SQL_ECommerce_Analytics_Module_2.ipynb`) showing complete schema designs, verified execution printouts, and ACID compliance logs.
+| Portfolio Phase | Focus Domain | Primary Deliverables | Reference Assets |
+| :--- | :--- | :--- | :--- |
+| **Module 1 (Week 1)** | Core Data Engineering & Automation | Automated File Ingestion & Imputation Pipeline | 📝 [Data_Cleaning_Module_1.ipynb](./Data_Cleaning_Module_1.ipynb) |
+| **Module 2 (Week 2)** | Relational DB Engineering | Schema Architecture, Query Optimization & Transactions | 📝 [SQL_ECommerce_Analytics_Module_2.ipynb](./SQL_ECommerce_Analytics_Module_2.ipynb) |
+| **Executive Summary** | Business Intelligence Insights | Production Analytics & Structural Performance Ledger | 📑 [Module 2 Full Submission Report](./Module_2_Submission_Report.md) |
+
+---
+
+## 🛠️ Module 1: Automated Data Cleansing & Ingestion Pipeline
+* **Core Technology Stack:** `Python 3.x` | `Pandas` | `NumPy` | `Glob Engine` | `OS Virtualization Layer`
+* **Target Analytical Footprint:** Multiclass Shopping Purchase Ledger (99 Consolidating Split File Artifacts)
+
+### Key Engineering Architecture
+* **High-Volume Data Aggregation:** Programmatically scanned, matched, and consolidated 99 separate CSV file parts scattered across raw storage layers into a single integrated dataframe footprint using Python's `glob` system.
+* **Database Imputation Strategy:** Eliminated data anomalies by filtering duplicate records, applying calculated numerical column medians to fill missing value arrays, and implementing categorical modes to repair text properties without shifting semantic distributions.
+* **Vectorized Matrix Operations:** Wrote optimized Python code to compute missing transaction summaries, deriving a clean, true transaction value array based on the formula:
+  $$Total\_Amount = Unit\_Price \times Quantity$$
+
+> **Data Engineering Artifacts Created:**
+> * Interactive Notebook Execution File: [`Data_Cleaning_Module_1.ipynb`](./Data_Cleaning_Module_1.ipynb)
+> * Production Dataset Release: [`cleaned_shopping_dataset.csv`](./cleaned_shopping_dataset.csv)
+
+---
+
+## 🛠️ Module 2: Relational Schema Design & Business Intelligence Analytics
+* **Core Technology Stack:** `Structured Query Language (SQL)` | `SQLite3 Engine` | `Indexing Optimization Models`
+* **Target Enterprise System:** ShopEase Relational DBMS (`Customers`, `Products`, `Orders`, `Order_Items` Schemas)
+
+### Key Database Implementations
+* **Referential Schema Enforcement:** Modeled multiple tables with robust field constraints, utilizing strict `PRIMARY KEY` mappings, operational `FOREIGN KEY` cascades, entity-level `UNIQUE` validations, and protective numerical domain `CHECK` rules.
+* **Query Performance Tuning:** Examined execution maps to build optimized index lookups. Rewrote slow query code blocks into fully **SARGable format**, shifting index performance from slow, full table linear scans ($O(N)$ complexity) into high-efficiency tree range lookups ($O(\log N)$ latency complexity).
+* **Multi-Dimensional Analytical Queries:** Constructed deep multi-table aggregates using nested `INNER JOIN` and `LEFT JOIN` operations to compile absolute customer lifecycle value trends across Indian markets.
+* **ACID Transactions Security:** Programmed a fault-tolerant multi-step operational script wrapped inside transactional safety handles (`BEGIN TRANSACTION` $\rightarrow$ `COMMIT / ROLLBACK`), ensuring inventory stock coordinates sync atomically whenever a customer purchase is logged.
+
+> **Relational Engineering Assets Created:**
+> * Full Analytical Querying Notebook: [`SQL_ECommerce_Analytics_Module_2.ipynb`](./SQL_ECommerce_Analytics_Module_2.ipynb)
+> * Executive Business Intelligence Report: [`Module_2_Submission_Report.md`](./Module_2_Submission_Report.md)
+
+---
+*Developed during the Celebal Technologies Data Science & Analytics Internship. Managed and mainlined under the `rakshiit-code` production repository.*
