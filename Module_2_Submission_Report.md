@@ -21,7 +21,7 @@ This relational analytical study evaluates e-commerce customer transaction patte
 Below is the complete database code. It is designed to run seamlessly in any SQL-compatible engine (SQLite, PostgreSQL, MySQL) to create tables, populate the ShopEase dataset, and execute the queries.
 
 ### A. Database Initialization, Schema & Seed Insertion
-
+```sql
 -- Create Customers Table
 CREATE TABLE customers (
     customer_id INT PRIMARY KEY,
