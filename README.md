@@ -1,4 +1,4 @@
-# Celebal Technologies: Data Science & Analytics Portfolio
+# Celebal Technologies: Data Engineering Portfolio
 
 ![Project Status](https://img.shields.io/badge/Internship_Portfolio-Active-blue?style=for-the-badge)
 ![Database Engine](https://img.shields.io/badge/DBMS-SQLite3%20%7C%20PostgreSQL-emerald?style=for-the-badge)
