@@ -1,4 +1,4 @@
-# Celebal Technologies: CEI Data Engineer Intern Portfolio
+# Celebal Technologies: Data Science & Analytics Portfolio
 
 ![Project Status](https://img.shields.io/badge/Internship_Portfolio-Active-blue?style=for-the-badge)
 ![Database Engine](https://img.shields.io/badge/DBMS-SQLite3%20%7C%20PostgreSQL-emerald?style=for-the-badge)
@@ -12,13 +12,13 @@ An enterprise-grade repository tracking core milestones, complex processing pipe
 
 | Portfolio Phase | Focus Domain | Primary Deliverables | Reference Assets |
 | :--- | :--- | :--- | :--- |
-| **Module 1 (Week 1)** | Core Data Engineering & Automation | Automated File Ingestion & Imputation Pipeline | 📝 [Data_Cleaning_Module_1.ipynb](./Data_Cleaning_Module_1.ipynb) |
-| **Module 2 (Week 2)** | Relational DB Engineering | Schema Architecture, Query Optimization & Transactions | 📝 [SQL_ECommerce_Analytics_Module_2.ipynb](./SQL_ECommerce_Analytics_Module_2.ipynb) |
-| **Executive Summary** | Business Intelligence Insights | Production Analytics & Structural Performance Ledger | 📑 [Module 2 Full Submission Report](./Module_2_Submission_Report.md) |
+| **Module 1 (Week 1)** | Core Data Engineering & Automation | Automated File Ingestion & Imputation Pipeline | 📝 [Data_Cleaning_Module_1.ipynb](./Week_1/Data_Cleaning_Module_1.ipynb) |
+| **Module 2 (Week 2)** | Relational DB Engineering | Schema Architecture, Query Optimization & Transactions | 📝 [SQL_ECommerce_Analytics_Module_2.ipynb](./Week_2/SQL_ECommerce_Analytics_Module_2.ipynb) |
+| **Executive Summary** | Business Intelligence Insights | Production Analytics & Structural Performance Ledger | 📑 [Module 2 Full Submission Report](./Week_2/Module_2_Submission_Report.md) |
 
 ---
 
-## 🛠️ Module 1: Automated Data Cleansing & Ingestion Pipeline
+## 🛠️ Week 1: Automated Data Cleansing & Ingestion Pipeline
 * **Core Technology Stack:** `Python 3.x` | `Pandas` | `NumPy` | `Glob Engine` | `OS Virtualization Layer`
 * **Target Analytical Footprint:** Multiclass Shopping Purchase Ledger (99 Consolidating Split File Artifacts)
 
@@ -28,13 +28,13 @@ An enterprise-grade repository tracking core milestones, complex processing pipe
 * **Vectorized Matrix Operations:** Wrote optimized Python code to compute missing transaction summaries, deriving a clean, true transaction value array based on the formula:
   $$Total\_Amount = Unit\_Price \times Quantity$$
 
-> **Data Engineering Artifacts Created:**
-> * Interactive Notebook Execution File: [`Data_Cleaning_Module_1.ipynb`](./Data_Cleaning_Module_1.ipynb)
-> * Production Dataset Release: [`cleaned_shopping_dataset.csv`](./cleaned_shopping_dataset.csv)
+> **Data Engineering Artifacts Directory:**
+> * Interactive Notebook Execution File: [`./Week_1/Data_Cleaning_Module_1.ipynb`](./Week_1/Data_Cleaning_Module_1.ipynb)
+> * Production Dataset Release: [`./Week_1/cleaned_shopping_dataset.csv`](./Week_1/cleaned_shopping_dataset.csv)
 
 ---
 
-## 🛠️ Module 2: Relational Schema Design & Business Intelligence Analytics
+## 🛠️ Week 2: Relational Schema Design & Business Intelligence Analytics
 * **Core Technology Stack:** `Structured Query Language (SQL)` | `SQLite3 Engine` | `Indexing Optimization Models`
 * **Target Enterprise System:** ShopEase Relational DBMS (`Customers`, `Products`, `Orders`, `Order_Items` Schemas)
 
@@ -44,9 +44,9 @@ An enterprise-grade repository tracking core milestones, complex processing pipe
 * **Multi-Dimensional Analytical Queries:** Constructed deep multi-table aggregates using nested `INNER JOIN` and `LEFT JOIN` operations to compile absolute customer lifecycle value trends across Indian markets.
 * **ACID Transactions Security:** Programmed a fault-tolerant multi-step operational script wrapped inside transactional safety handles (`BEGIN TRANSACTION` $\rightarrow$ `COMMIT / ROLLBACK`), ensuring inventory stock coordinates sync atomically whenever a customer purchase is logged.
 
-> **Relational Engineering Assets Created:**
-> * Full Analytical Querying Notebook: [`SQL_ECommerce_Analytics_Module_2.ipynb`](./SQL_ECommerce_Analytics_Module_2.ipynb)
-> * Executive Business Intelligence Report: [`Module_2_Submission_Report.md`](./Module_2_Submission_Report.md)
+> **Relational Engineering Assets Directory:**
+> * Full Analytical Querying Notebook: [`./Week_2/SQL_ECommerce_Analytics_Module_2.ipynb`](./Week_2/SQL_ECommerce_Analytics_Module_2.ipynb)
+> * Executive Business Intelligence Report: [`./Week_2/Module_2_Submission_Report.md`](./Week_2/Module_2_Submission_Report.md)
 
 ---
 *Developed during the Celebal Technologies Data Science & Analytics Internship. Managed and mainlined under the `rakshiit-code` production repository.*
