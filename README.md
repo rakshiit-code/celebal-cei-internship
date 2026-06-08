@@ -20,8 +20,8 @@ An enterprise-grade repository tracking core milestones, complex processing pipe
 | :--- | :--- | :--- | :--- |
 | **Module 1 (Week 1)** | Core Data Engineering & Automation | Automated File Ingestion & Imputation Pipeline | 📝 [Data_Cleaning_Module_1.ipynb](./Week_1/Data_Cleaning_Module_1.ipynb) |
 | **Module 2 (Week 2)** | Relational DB Engineering | Schema Architecture, Query Optimization & Transactions | 📝 [SQL_ECommerce_Analytics_Module_2.ipynb](./Week_2/SQL_ECommerce_Analytics_Module_2.ipynb) |
+| **Module 3 (Week 3)** | Advanced Analytical Engine | 3NF Schema, Subqueries, CTEs, & Window Functions | 📝 [Data_Analysis_Module_3.ipynb](./Week3_Assignment/Data_Analysis_Module_3.ipynb) |
 | **Executive Summary** | Business Intelligence Insights | Production Analytics & Structural Performance Ledger | 📑 [Module 2 Full Submission Report](./Week_2/Module_2_Submission_Report.md) |
-
 ---
 
 ## 🛠️ Week 1: Automated Data Cleansing & Ingestion Pipeline
@@ -55,3 +55,22 @@ An enterprise-grade repository tracking core milestones, complex processing pipe
 > * Executive Business Intelligence Report: [`./Week_2/Module_2_Submission_Report.md`](./Week_2/Module_2_Submission_Report.md)
 
 ---
+
+---
+
+---
+
+## 🛠️ Week 3: Advanced Relational Analytical Engine & Superstore Mining
+* **Core Technology Stack:** `SQL` | `Python` | `Pandas` | `SQLite3 Engine` | `Advanced Window Functions`
+* **Target Enterprise System:** Superstore Relational Analytics (`Customers`, `Products`, `Orders` Normalized Schemas)
+
+### Key Engineering & Analytical Architecture
+* **Relational Schema Normalization:** Decoupled unstructured raw datasets into a clean, normalized 3NF relational architecture (`Customers`, `Products`, `Orders`) using efficient `SELECT DISTINCT` routines.
+* **Complex Data Mining Engine:** Engineered enterprise-grade data structures by implementing:
+    * **Nested Subqueries & CTEs:** Orchestrated multi-layer data transformations to isolate peak revenue contributors and calculate global financial averages.
+    * **Analytical Window Functions:** Deployed `RANK()`, `DENSE_RANK()`, and `ROW_NUMBER()` to perform high-precision customer segmentation and sequential transaction tracking.
+* **Targeted Business Case Study:** Solved for critical business KPIs, including retention risk analysis, single-order attrition, and high-value cart order tracking, delivering actionable insights into regional performance and discount volatility.
+
+> **Relational Engineering Assets Directory:**
+> * Full Analytical Querying Notebook: 📝 [Data_Analysis_Module_3.ipynb](./Week_3/Data_Analysis_Module_3.ipynb)
+> * Executive Intelligence & Insights Report: 📑 [Module 3 Full Submission Report](./Week_3/Module_3_Submission_Report.md)
