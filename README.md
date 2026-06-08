@@ -10,12 +10,12 @@ An enterprise-grade repository tracking core milestones, complex processing pipe
 
 ## 📂 Repository Blueprint & Deliverables Map
 
-| Portfolio Phase | Focus Domain | Primary Deliverables | Reference Assets |
-| :--- | :--- | :--- | :--- |
-| **Module 1 (Week 1)** | Core Data Engineering & Automation | Automated File Ingestion & Imputation Pipeline | Data_Cleaning_Module_1.ipynb |
-| **Module 2 (Week 2)** | Relational DB Engineering | Schema Architecture, Query Optimization & Transactions | SQL_ECommerce_Analytics_Module_2.ipynb |
-| **Module 3 (Week 3)** | Advanced Analytical Engine | 3NF Schema, Subqueries, CTEs, & Window Functions | Celebal_Week3_Clean.ipynb |
-| **Executive Summary** | Business Intelligence Insights | Production Analytics & Structural Performance Ledger | Module_3_Submission_Report.md |
+| Portfolio Phase | Focus Domain | Primary Deliverables |
+| :--- | :--- | :--- |
+| **Module 1 (Week 1)** | Core Data Engineering & Automation | Automated File Ingestion & Imputation Pipeline |
+| **Module 2 (Week 2)** | Relational DB Engineering | Schema Architecture, Query Optimization & Transactions | 
+| **Module 3 (Week 3)** | Advanced Analytical Engine | 3NF Schema, Subqueries, CTEs, & Window Functions | 
+
 
 ---
 
