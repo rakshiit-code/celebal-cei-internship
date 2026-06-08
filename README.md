@@ -20,8 +20,8 @@ An enterprise-grade repository tracking core milestones, complex processing pipe
 | :--- | :--- | :--- | :--- |
 | **Module 1 (Week 1)** | Core Data Engineering & Automation | Automated File Ingestion & Imputation Pipeline | 📝 [Data_Cleaning_Module_1.ipynb](./Week_1/Data_Cleaning_Module_1.ipynb) |
 | **Module 2 (Week 2)** | Relational DB Engineering | Schema Architecture, Query Optimization & Transactions | 📝 [SQL_ECommerce_Analytics_Module_2.ipynb](./Week_2/SQL_ECommerce_Analytics_Module_2.ipynb) |
-| **Module 3 (Week 3)** | Advanced Analytical Engine | 3NF Schema, Subqueries, CTEs, & Window Functions | 📝 [Data_Analysis_Module_3.ipynb](./Week3_Assignment/Data_Analysis_Module_3.ipynb) |
-| **Executive Summary** | Business Intelligence Insights | Production Analytics & Structural Performance Ledger | 📑 [Module 2 Full Submission Report](./Week_2/Module_2_Submission_Report.md) |
+| **Module 3 (Week 3)** | Advanced Analytical Engine | 3NF Schema, Subqueries, CTEs, & Window Functions | 📝 [Celebal_Week3.ipynb](./Week3_Assignment/Celebal_Week3.ipynb) |
+| **Executive Summary** | Business Intelligence Insights | Production Analytics & Structural Performance Ledger | 📑 [Module 3 Submission Report](./Week3_Assignment/Module_3_Submission_Report.md) |
 ---
 
 ## 🛠️ Week 1: Automated Data Cleansing & Ingestion Pipeline
@@ -69,8 +69,8 @@ An enterprise-grade repository tracking core milestones, complex processing pipe
 * **Complex Data Mining Engine:** Engineered enterprise-grade data structures by implementing:
     * **Nested Subqueries & CTEs:** Orchestrated multi-layer data transformations to isolate peak revenue contributors and calculate global financial averages.
     * **Analytical Window Functions:** Deployed `RANK()`, `DENSE_RANK()`, and `ROW_NUMBER()` to perform high-precision customer segmentation and sequential transaction tracking.
-* **Targeted Business Case Study:** Solved for critical business KPIs, including retention risk analysis, single-order attrition, and high-value cart order tracking, delivering actionable insights into regional performance and discount volatility.
+* **Targeted Business Case Study:** Solved for critical business KPIs, including retention risk analysis, single-order attrition, and high-value cart order tracking, delivering actionable insights.
 
 > **Relational Engineering Assets Directory:**
-> * Full Analytical Querying Notebook: 📝 [Data_Analysis_Module_3.ipynb](./Week_3/Data_Analysis_Module_3.ipynb)
-> * Executive Intelligence & Insights Report: 📑 [Module 3 Full Submission Report](./Week_3/Module_3_Submission_Report.md)
+> * Full Analytical Querying Notebook: 📝 [Celebal_Week3.ipynb](./Week3_Assignment/Celebal_Week3.ipynb)
+> * Executive Intelligence & Insights Report: 📑 [Module_3_Submission_Report.md](./Week3_Assignment/Module_3_Submission_Report.md)
