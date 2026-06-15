@@ -15,6 +15,7 @@ An enterprise-grade repository tracking core milestones, complex processing pipe
 | **Module 1 (Week 1)** | Core Data Engineering & Automation | Automated File Ingestion & Imputation Pipeline |
 | **Module 2 (Week 2)** | Relational DB Engineering | Schema Architecture, Query Optimization & Transactions | 
 | **Module 3 (Week 3)** | Advanced Analytical Engine | 3NF Schema, Subqueries, CTEs, & Window Functions | 
+| **Module 4 (Week 4)** | Cloud Data Orchestration | Azure ADF Pipelines & Blob Storage Integration |
 
 
 ---
