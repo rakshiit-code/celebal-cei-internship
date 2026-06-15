@@ -51,4 +51,13 @@ An enterprise-grade repository tracking core milestones, complex processing pipe
 * **Targeted Business Case Study:** Solved for critical business KPIs, including retention risk analysis, single-order attrition, and high-value cart order tracking, delivering actionable insights.
 
 ---
+## 🛠️ Week 4: Cloud Data Orchestration & Azure Pipeline Integration
+* **Core Technology Stack:** Azure Data Factory (ADF) | Azure Blob Storage | IAM (RBAC)
+* **Target Enterprise System:** End-to-End Cloud Data Pipeline
+
+### Key Engineering & Analytical Architecture
+* **Cloud Resource Architecture:** Provisioned secure, scalable infrastructure including Resource Groups, Storage Accounts, and Data Factory instances within Azure.
+* **Orchestration Workflow:** Designed and executed a robust data pipeline utilizing **Get Metadata** for file validation and **Copy Data** activities for seamless transfer from raw storage to processed sinks.
+* **Security & Governance:** Implemented granular IAM/RBAC controls to ensure secure access to Azure resources, adhering to enterprise security standards.
+* **Performance Monitoring:** Configured pipeline triggers and debug sessions to monitor activity duration, throughput, and execution success, ensuring high availability and reliability of data flows.
 *End of Portfolio | Verified Stable | Author: Rakshit Gupta*
