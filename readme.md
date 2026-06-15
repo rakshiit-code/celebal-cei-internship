@@ -116,31 +116,3 @@ Total: **5 role assignments** (3 Job function roles, 2 Privileged administrator 
 Build a complete pipeline that reads the Sample Superstore CSV from Blob Storage, validates its metadata, and copies the data to a new destination location.
 
 ### Architecture
----
-
-##  Azure Resources Used
-
-| Resource | Actual Name | Purpose |
-|----------|-------------|---------|
-| Resource Group | `rg-week4` | Container for all resources |
-| Storage Account | `stweek4rakshit438` | Blob storage for CSV files |
-| Blob Container | `raw-data` | Input file storage |
-| Source File | `Sample - Superstore....csv` (2.18 MiB) | Dataset for pipeline |
-| Azure Data Factory | `adfweek4rakshit4388` | Pipeline orchestration |
-| Linked Service | `AzureBlobStorage_linked` | ADF ↔ Storage connection |
-| Source Dataset | `DS_Source_CSV` | Points to Superstore CSV in `raw-data/` |
-| Pipeline | `PL_Copy_EmployeeData` | Copy + Metadata pipeline |
-| Pipeline Activity | `pl_Copy_sample-superstore data` | Copy Data activity |
-
----
-
-##  Key Concepts Covered
-
-- **Resource Group** — Logical container for Azure resources
-- **Blob Storage** — Unstructured data storage (CSV, JSON, images, etc.)
-- **Linked Service** — Connection definition in ADF
-- **Dataset** — Pointer to a specific data location/format
-- **Copy Data Activity** — Moves data from source to sink
-- **Get Metadata Activity** — Retrieves file properties for validation
-- **IAM / RBAC** — Role-based access control for Azure resources
-- **Integration Runtime** — Compute infrastructure used by ADF to run activities
