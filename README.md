@@ -62,3 +62,17 @@ An enterprise-grade repository tracking core milestones, complex processing pipe
 * **Security & Governance:** Implemented granular IAM/RBAC controls to ensure secure access to Azure resources, adhering to enterprise security standards.
 * **Performance Monitoring:** Configured pipeline triggers and debug sessions to monitor activity duration, throughput, and execution success, ensuring high availability and reliability of data flows.
 *End of Portfolio | Verified Stable | Author: Rakshit Gupta*
+---
+
+## 🛠️ Week 5: Distributed Big Data Processing with PySpark
+* **Core Technology Stack:** Apache Spark | PySpark | DAG Execution | Wide Transformations
+* **Target Enterprise System:** Scalable Distributed Analytical Pipeline
+
+### Key Engineering & Analytical Architecture
+* **In-Memory Computing Transition:** Migrated data processing workflows from disk-based MapReduce patterns to Spark’s high-performance in-memory engine, significantly reducing iterative processing latency.
+* **Distributed Transformation Engine:** Engineered complex analytical pipelines utilizing both **Narrow** and **Wide transformations**; effectively managed shuffle partitions and DAG scheduling to optimize data redistribution across cluster nodes.
+* **Production-Grade Data Cleansing:** Implemented robust PySpark routines for automated schema enforcement, null/missing value imputation, and type-safe casting (e.g., `TimestampType` conversion) to ensure high-fidelity data downstream.
+* **Advanced Aggregation Logic:** Constructed scalable aggregation engines using PySpark SQL functions (`count`, `sum`, `avg`, `min`, `max`) combined with conditional `groupBy` operations to derive enterprise-level KPIs from massive datasets.
+* **Performance Analysis:** Conducted detailed observations on shuffle overhead and compute performance, providing technical insights into cluster resource utilization and DAG execution efficiency.
+
+> **Technical Artifacts:** Includes comprehensive Q&A (Q1–Q15) covering Spark architecture, session management, and real-time output validation.
