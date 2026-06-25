@@ -16,6 +16,7 @@ An enterprise-grade repository tracking core milestones, complex processing pipe
 | **Module 2 (Week 2)** | Relational DB Engineering | Schema Architecture, Query Optimization & Transactions | 
 | **Module 3 (Week 3)** | Advanced Analytical Engine | 3NF Schema, Subqueries, CTEs, & Window Functions | 
 | **Module 4 (Week 4)** | Cloud Data Orchestration | Azure ADF Pipelines & Blob Storage Integration |
+| **Module 5 (Week 5)** | Big Data & Distributed Computing | PySpark Pipelines, Shuffling & In-Memory Analytics |
 
 
 ---
