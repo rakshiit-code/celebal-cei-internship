@@ -12,30 +12,7 @@ This project uses a customer-dimension dataset with the same schema as the
 `Region`).
 
 
-## Project Structure
-```
-delta-lake-assignment/
-│
-├── data/
-│   ├── customer_master.csv         # Base dataset (with a few intentional nulls/duplicates)
-│   └── customer_incremental.csv    # Simulated incoming batch (6 updates + 6 new customers)
-│
-├── notebooks/
-│   └── delta_scd_assignment.ipynb  # Full pipeline: load → clean → merge → validate
-│
-├── screenshots/
-│   ├── data_loading/
-│   ├── data_cleaning/
-│   ├── scd1/
-│   ├── scd2/
-│   ├── validation/
-│   └── final_output/
-│
-├── report/
-│   └── assignment_summary.pdf 
-│
-└── README.md
-```
+
 
 ## Steps Covered in the Notebook
 1. **Load dataset into a Delta table** — read the CSV, write it as a managed Delta
