@@ -17,7 +17,9 @@ An enterprise-grade repository tracking core milestones, complex processing pipe
 | **Module 3 (Week 3)** | Advanced Analytical Engine | 3NF Schema, Subqueries, CTEs, & Window Functions | 
 | **Module 4 (Week 4)** | Cloud Data Orchestration | Azure ADF Pipelines & Blob Storage Integration |
 | **Module 5 (Week 5)** | Big Data & Distributed Computing | PySpark Pipelines, Shuffling & In-Memory Analytics |
-
+| **Module 6 (Week 6)** | Lakehouse Architecture & Delta Lake | Delta Tables, ACID Compliance, Time Travel & Schema Evolution |
+| **Module 7 (Week 7)** | Cloud Data Warehousing & Modern ELT | Snowflake/Synapse Architecture, Advanced Querying & Modeling |
+| **Module 8 (Week 8)** | Capstone Architecture & Workflow Orchestration | End-to-End Data Pipeline Integration, Automation & Analytics |
 
 ---
 
@@ -53,6 +55,7 @@ An enterprise-grade repository tracking core milestones, complex processing pipe
 * **Targeted Business Case Study:** Solved for critical business KPIs, including retention risk analysis, single-order attrition, and high-value cart order tracking, delivering actionable insights.
 
 ---
+
 ## 🛠️ Week 4: Cloud Data Orchestration & Azure Pipeline Integration
 * **Core Technology Stack:** Azure Data Factory (ADF) | Azure Blob Storage | IAM (RBAC)
 * **Target Enterprise System:** End-to-End Cloud Data Pipeline
@@ -62,7 +65,7 @@ An enterprise-grade repository tracking core milestones, complex processing pipe
 * **Orchestration Workflow:** Designed and executed a robust data pipeline utilizing **Get Metadata** for file validation and **Copy Data** activities for seamless transfer from raw storage to processed sinks.
 * **Security & Governance:** Implemented granular IAM/RBAC controls to ensure secure access to Azure resources, adhering to enterprise security standards.
 * **Performance Monitoring:** Configured pipeline triggers and debug sessions to monitor activity duration, throughput, and execution success, ensuring high availability and reliability of data flows.
-*End of Portfolio | Verified Stable | Author: Rakshit Gupta*
+
 ---
 
 ## 🛠️ Week 5: Distributed Big Data Processing with PySpark
@@ -77,3 +80,42 @@ An enterprise-grade repository tracking core milestones, complex processing pipe
 * **Performance Analysis:** Conducted detailed observations on shuffle overhead and compute performance, providing technical insights into cluster resource utilization and DAG execution efficiency.
 
 > **Technical Artifacts:** Includes comprehensive Q&A (Q1–Q15) covering Spark architecture, session management, and real-time output validation.
+
+---
+
+## 🛠️ Week 6: Next-Generation Lakehouse Architecture with Delta Lake
+* **Core Technology Stack:** Databricks | Delta Lake | Apache Spark SQL | Parquet Storage
+* **Target Enterprise System:** ACID-Compliant Transactional Storage Layer
+
+### Key Engineering & Analytical Architecture
+* **Lakehouse Table Convergence:** Converted legacy Parquet data lakes into high-performance Delta tables, enabling ACID transaction guarantees over distributed object storage.
+* **Time Travel & Auditing Implementation:** Leveraged Delta Lake's historical transaction log (`_delta_log`) to query historical data snapshots using `AS OF` syntax, ensuring total reproducibility and system auditability.
+* **Schema Evolution & Enforcement:** Enforced strict structural boundaries on incoming production streams to prevent data corruption while implementing controlled schema migration configurations for structural updates.
+* **Storage Optimization Realization:** Programmatically applied `OPTIMIZE` commands coupled with `Z-ORDER BY` multidimensional clustering to dramatically reduce file fragmentation and accelerate scan speeds for critical query paths.
+
+---
+
+## 🛠️ Week 7: Enterprise Data Warehousing & Modern ELT Paradigms
+* **Core Technology Stack:** Snowflake/Cloud DW | Advanced SQL | Data Modeling | Stage & Pipe Automation
+* **Target Enterprise System:** Centralized Analytical Cloud Data Warehouse
+
+### Key Engineering & Analytical Architecture
+* **Modern Warehouse Architecture:** Developed compute-isolated virtual warehouses configured with multi-cluster auto-scaling rules to efficiently manage varying heavy workloads without resource contention.
+* **Automated Raw Storage Ingestion:** Provisioned external stages and storage integration patterns to build seamless copy pipelines (`COPY INTO`) executing semi-structured JSON and CSV parsing natively.
+* **Advanced Materialized Views & Optimization:** Built high-performance analytical views and optimized clustering keys to drastically reduce query computing costs on multi-million row transactional datasets.
+* **Data Security & Masking Policies:** Implemented RBAC security hierarchies combined with dynamic data masking rules to safeguard sensitive column attributes (PII) at rest and during query execution.
+
+---
+
+## 🛠️ Week 8: End-to-End Capstone Production Pipeline & Workflow Orchestration
+* **Core Technology Stack:** Integration Stack (ADF | Databricks | Cloud DW | BI Tooling)
+* **Target Enterprise System:** Fully Unified Corporate Insights Platform
+
+### Key Engineering & Analytical Architecture
+* **End-to-End Orchestration Blueprint:** Combined multi-week concepts into a single robust operational topology: Raw Landing $\rightarrow$ Azure ADF $\rightarrow$ Databricks/Delta Lake Cleansing $\rightarrow$ Cloud Warehousing Serving Layer.
+* **Advanced Workflow Scheduling:** Engineered unified task dependency graphs using automated system triggers, event-driven execution patterns, and error handling notification blocks.
+* **Analytical Insights Surface:** Transformed aggregate serving-layer metrics into highly scannable visual business intelligence dashboards mapping out real-time enterprise health and operational velocity.
+* **Final Deployment Integrity:** Conducted rigorous system integration testing, validating schema enforcement across all staging points, pipeline exception handling, and performance SLAs.
+
+---
+*End of Portfolio | Verified Stable | Author: Rakshit Gupta*
